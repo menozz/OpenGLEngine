@@ -11,10 +11,11 @@ using namespace  std;
 class Texture
 {
 	int id;
-	int width;
-	int height;
+	int w;
+	int h;
 
-	bool LoadImage(const char* path, unsigned int flags);
+	bool GetTextureParams();
+
 public:
 
 	Texture();
@@ -24,7 +25,6 @@ public:
 	int GetID();
 	int GetWidth();
 	int GetHeight();
-
 };
 #endif
 

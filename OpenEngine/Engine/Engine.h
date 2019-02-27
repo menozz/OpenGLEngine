@@ -22,7 +22,8 @@ public:
 	bool Initialize(const char *wndTitle);
 
 	void Update();
-	void Render();
+	void BeginRender();
+	void EndRender();
 };
 
 #endif

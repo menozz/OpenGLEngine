@@ -117,12 +117,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Engine\Engine.cpp" />
-    <ClCompile Include="Engine\Texture.cpp" />
+    <ClCompile Include="Engine\Graphics\Sprite.cpp" />
+    <ClCompile Include="Engine\Graphics\Texture.cpp" />
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\Engine.h" />
-    <ClInclude Include="Engine\Texture.h" />
+    <ClInclude Include="Engine\Graphics\Sprite.h" />
+    <ClInclude Include="Engine\Graphics\Texture.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
