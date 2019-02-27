@@ -30,3 +30,12 @@
 *.exe
 *.out
 *.app
+
+
+Debug/*
+.vs/*
+OpenEngine/Debug/*
+OpenEngine/x64/*
+x64/*
+packages/*
+/OpenEngine/OpenEngine.vcxproj.*
