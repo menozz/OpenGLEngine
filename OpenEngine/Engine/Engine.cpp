@@ -4,7 +4,7 @@
 
 int Engine::SCR_H = 1024;
 int Engine::SCR_W = 768;
-double Engine::dt = 0;
+float Engine::dt = 0;
 
 GLFWwindow* Engine::window = nullptr;
 
@@ -70,7 +70,7 @@ bool Engine::Initialize(const char* wndTitle)
 
 void Engine::Update()
 {
-	double now = glfwGetTime();
+	float now = glfwGetTime();
 	dt = now - lastTime;
 	lastTime = now;
 	glfwPollEvents();
@@ -86,7 +86,7 @@ void Engine::EndRender()
 	glfwSwapBuffers(window);
 }
 
-double Engine::GetDT()
+float Engine::GetDT()
 {
 	return dt;
 }

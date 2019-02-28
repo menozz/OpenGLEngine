@@ -1,29 +1,30 @@
 #include "Sprite.h"
 #include "../Engine.h"
 
+#define MOVESPEED 200
+
 Sprite::Sprite()
 {
-	yPos = xPos = 0;
+	pos = Vector3(0);
 	texture = Texture();
 	rot = 0;
-	speed = 100;
+	speed = MOVESPEED;
 }
 
 Sprite::Sprite(string imagePath)
 {
 	texture = Texture(imagePath);
-	yPos = xPos = 0;
+	pos = Vector3(0);
 	rot = 0;
-	speed = 100;
+	speed = MOVESPEED;
 }
 
-Sprite::Sprite(string imagePath, float xPos, float yPos)
+Sprite::Sprite(string imagePath, Vector3 v)
 {
 	texture = Texture(imagePath);
-	this->xPos = xPos;
-	this->yPos = yPos;
+	pos = v;
 	rot = 0;
-	speed = 100;
+	speed = MOVESPEED;
 }
 
 void Sprite::Update()
@@ -37,75 +38,71 @@ void Sprite::Render()
 	glLoadIdentity();
 
 	// TRANSLATE->ROTATE->SCALE
-	glTranslatef(xPos, yPos, 0);
+	glTranslatef(pos.x, pos.y, 0);
 	glRotatef(rot, 0, 0, 1);
-	glScalef(xScale, yScale, 1);
+	glScalef(scale.x, scale.y, 1);
 
 	// Rendering
 	glColor4f(1, 1, 1, 1);
 
 	glBegin(GL_QUADS);
-	glTexCoord2f(0, 0); glVertex2f(0, 0);
-	glTexCoord2f(1, 0); glVertex2f(texture.GetWidth(), 0);
-	glTexCoord2f(0, 1); glVertex2f(0, texture.GetHeight());
-	glTexCoord2f(1, 1); glVertex2f(texture.GetWidth(), texture.GetHeight());
+	glTexCoord2i(0, 0); glVertex2i(0, 0);
+	glTexCoord2i(1, 0); glVertex2i(texture.GetWidth(), 0);
+	glTexCoord2i(0, 1); glVertex2i(0, texture.GetHeight());
+	glTexCoord2i(1, 1); glVertex2i(texture.GetWidth(), texture.GetHeight());
 	glEnd();
 
 	glDisable(GL_TEXTURE_2D);
 }
 
-void Sprite::MoveTo(float x, float y)
+void Sprite::MoveTo(Vector3 v)
 {
-	xPos = x;
-	yPos = y;
+	pos = v;
 }
 
-void Sprite::MoveBy(float x, float y)
+void Sprite::MoveBy(Vector3 v)
 {
-	xPos += x * Engine::GetDT();
-	yPos += y * Engine::GetDT();
+	pos += (v * Engine::GetDT());
 }
 
 void Sprite::MoveLeft()
 {
-	xPos -= speed * Engine::GetDT();
+	pos.x -= speed * Engine::GetDT();
 }
 
 void Sprite::MoveRight()
 {
-	xPos += speed * Engine::GetDT();
+	pos.x += speed * Engine::GetDT();
 }
 
 void Sprite::MoveUp()
 {
-	yPos += speed * Engine::GetDT();
+	pos.y += speed * Engine::GetDT();
 }
 
 void Sprite::MoveDown()
 {
-	yPos -= speed * Engine::GetDT();
+	pos.y -= speed * Engine::GetDT();
 }
 
-
-void Sprite::RotateTo(float rot)
+void Sprite::RotateTo(float x)
 {
-	this->rot = rot;
+	this->rot = x;
 }
 
-void Sprite::RotateBy(float rot)
+void Sprite::RotateBy(float x)
 {
-	this->rot += (rot * Engine::GetDT());
+	this->rot += (x * Engine::GetDT());
 }
 
 void Sprite::SetScale(float x)
 {
-	xScale = yScale = x;
+	scale = x;
 }
 
-void Sprite::SetScale(float x, float y)
+void Sprite::SetScale(Vector3 v)
 {
-	xScale = x;
-	yScale = y;
+	scale = v;
 }
 
 void Sprite::SpeedTo(float x)

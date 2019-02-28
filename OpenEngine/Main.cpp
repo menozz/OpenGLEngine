@@ -3,34 +3,36 @@
 #include "Engine/IO/Mouse.h"
 #include "Engine/IO/Keyboard.h"
 
+#define ROTSPEED 100
+
 int main()
 {
-    auto engine = Engine();
+	auto engine = Engine();
 	if (engine.Initialize("Window Title"))
 	{
-		auto sprite = Sprite("Assets/Art/7.png", 0, 0);
+		auto sprite = Sprite("Assets/Art/7.png", Vector3(0));
 		sprite.SetScale(0.25f);
 		while (true)
 		{
 			engine.Update();
 			sprite.Update();
-			
-			if(Mouse::Button(GLFW_MOUSE_BUTTON_RIGHT))
+
+			if (Mouse::Button(GLFW_MOUSE_BUTTON_RIGHT))
 			{
-				sprite.RotateBy(10);
+				sprite.RotateBy(ROTSPEED);
 			}
 
 			if (Mouse::Button(GLFW_MOUSE_BUTTON_LEFT))
 			{
-				sprite.RotateBy(-10);
+				sprite.RotateBy(-ROTSPEED);
 			}
 
-			if(Mouse::Button(GLFW_MOUSE_BUTTON_MIDDLE))
+			if (Mouse::Button(GLFW_MOUSE_BUTTON_MIDDLE))
 			{
-				sprite.RotateBy(10);
+				sprite.RotateTo(0);
 			}
 
-			if(Keyboard::Key(GLFW_KEY_W))
+			if (Keyboard::Key(GLFW_KEY_W))
 			{
 				sprite.MoveUp();
 			}
