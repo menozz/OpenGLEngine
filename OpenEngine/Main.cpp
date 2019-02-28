@@ -9,7 +9,7 @@ int main()
     auto engine = Engine();
 	if (engine.Initialize("Window Title"))
 	{
-		auto sprite = Sprite("Assets/Art/7.png", -100, -100);
+		auto sprite = Sprite("Assets/Art/7.png", -300, -300);
 		while (true)
 		{
 			engine.Update();
