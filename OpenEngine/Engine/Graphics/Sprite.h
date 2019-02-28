@@ -14,7 +14,7 @@ class Sprite
 	float yPos;
 	float rot;
 	float xScale, yScale;
-
+	float speed;
 
 public:
 
@@ -25,10 +25,22 @@ public:
 	void Update();
 	void Render();
 
-	void SetPos(float x, float y);
-	void SetRot(float x);
+	void MoveTo(float x, float y);
+	void MoveBy(float x, float y);
+
+	void MoveLeft();
+	void MoveRight();
+	void MoveUp();
+	void MoveDown();
+
+	void RotateTo(float x);
+	void RotateBy(float x);
+
 	void SetScale(float x);
 	void SetScale(float x, float y);
+
+	void SpeedTo(float x);
+	void SpeedBy(float x);
 };
 
 #endif

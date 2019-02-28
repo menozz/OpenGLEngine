@@ -1,5 +1,6 @@
 #include "Engine.h"
 #include "IO/Mouse.h"
+#include "IO/Keyboard.h"
 
 int Engine::SCR_H = 1024;
 int Engine::SCR_W = 768;
@@ -40,6 +41,8 @@ bool Engine::Initialize(const char* wndTitle)
 
 	glfwSetCursorPosCallback(window, Mouse::MousePosCallBack);
 	glfwSetMouseButtonCallback(window, Mouse::MouseButtonCallBack);
+
+	glfwSetKeyCallback(window, Keyboard::KeyCallBack);
 
 	const auto mode = glfwGetVideoMode(glfwGetPrimaryMonitor());
 	const auto xPos = (mode->width - SCR_W) / 2;

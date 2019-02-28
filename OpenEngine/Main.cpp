@@ -1,12 +1,10 @@
-#include "cstdlib"
 #include "Engine/Engine.h"
 #include "Engine/Graphics/Sprite.h"
 #include "Engine/IO/Mouse.h"
+#include "Engine/IO/Keyboard.h"
 
 int main()
 {
-	system("pause");
-
     auto engine = Engine();
 	if (engine.Initialize("Window Title"))
 	{
@@ -16,8 +14,41 @@ int main()
 		{
 			engine.Update();
 			sprite.Update();
+			
+			if(Mouse::Button(GLFW_MOUSE_BUTTON_RIGHT))
+			{
+				sprite.RotateBy(10);
+			}
 
-			sprite.SetPos((float)Mouse::GetMouseX(), (float)Mouse::GetMouseY());
+			if (Mouse::Button(GLFW_MOUSE_BUTTON_LEFT))
+			{
+				sprite.RotateBy(-10);
+			}
+
+			if(Mouse::Button(GLFW_MOUSE_BUTTON_MIDDLE))
+			{
+				sprite.RotateBy(10);
+			}
+
+			if(Keyboard::Key(GLFW_KEY_W))
+			{
+				sprite.MoveUp();
+			}
+
+			if (Keyboard::Key(GLFW_KEY_S))
+			{
+				sprite.MoveDown();
+			}
+
+			if (Keyboard::Key(GLFW_KEY_A))
+			{
+				sprite.MoveLeft();
+			}
+
+			if (Keyboard::Key(GLFW_KEY_D))
+			{
+				sprite.MoveRight();
+			}
 
 			engine.BeginRender();
 			sprite.Render();
@@ -25,6 +56,5 @@ int main()
 		}
 	}
 
-	system("pause");
 	return 0;
 }
