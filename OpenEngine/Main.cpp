@@ -11,6 +11,7 @@ int main()
 	if (engine.Initialize("Window Title"))
 	{
 		auto sprite = Sprite("Assets/Art/7.png", 0, 0);
+		sprite.SetScale(0.25f);
 		while (true)
 		{
 			engine.Update();

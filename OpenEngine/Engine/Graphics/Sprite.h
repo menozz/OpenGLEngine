@@ -12,6 +12,9 @@ class Sprite
 	Texture texture;
 	float xPos;
 	float yPos;
+	float rot;
+	float xScale, yScale;
+
 
 public:
 
@@ -23,6 +26,9 @@ public:
 	void Render();
 
 	void SetPos(float x, float y);
+	void SetRot(float x);
+	void SetScale(float x);
+	void SetScale(float x, float y);
 };
 
 #endif
