@@ -1,4 +1,5 @@
 #include "Engine.h"
+#include "IO/Mouse.h"
 
 int Engine::SCR_H = 1024;
 int Engine::SCR_W = 768;
@@ -36,6 +37,9 @@ bool Engine::Initialize(const char* wndTitle)
 	int w, h;
 	glfwGetFramebufferSize(window, &w, &h);
 	glfwSwapInterval(1);
+
+	glfwSetCursorPosCallback(window, Mouse::MousePosCallBack);
+	glfwSetMouseButtonCallback(window, Mouse::MouseButtonCallBack);
 
 	const auto mode = glfwGetVideoMode(glfwGetPrimaryMonitor());
 	const auto xPos = (mode->width - SCR_W) / 2;
