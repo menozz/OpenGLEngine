@@ -10,11 +10,14 @@ using namespace std;
 class Engine
 {
 	static GLFWwindow* window;
+	static double dt;
+	double lastTime;
 
 public:
 
 	static int SCR_W;
 	static int SCR_H;
+	static double GetDT();
 
 	Engine();
 	~Engine();
