@@ -16,7 +16,7 @@ void Flapper::Update()
 {
 	sprite.Update();
 	rb.Update();
-	sprite.RotateBy(100 * Engine::GetDT());
+	sprite.RotateBy(-100);
 }
 
 void Flapper::Render()
@@ -37,7 +37,8 @@ Rigidbody& Flapper::GetRB()
 
 void Flapper::Flap()
 {
-	rb.AddForce({ 0, 50, 0 });
+	rb.SetVel({ 0, 750, 0 });
+	sprite.RotateTo(45);
 }
 
 

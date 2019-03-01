@@ -3,7 +3,7 @@
 #include "../Engine/Graphics/Sprite.h"
 #include "../Engine/Physics/Rigibody.h"
 
-#define FRICTION 0.9f
+#define FRICTION 0.8f
 #define GRAVITY -10.0f
 
 class Flapper

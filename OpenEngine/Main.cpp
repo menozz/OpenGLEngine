@@ -8,7 +8,7 @@ int main()
 	auto engine = Engine();
 	if (engine.Initialize("Window Title"))
 	{
-		auto sprite = Sprite("Assets/Art/7.png", Vector3());
+		auto sprite = Sprite("Assets/Art/7.png", Vector3((float)Engine::SCR_W/2, (float)Engine::SCR_H / 2, 0));
 		sprite.SetScale(0.25f);
 
 		Flapper player(sprite);

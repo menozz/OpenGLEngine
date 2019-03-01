@@ -23,6 +23,7 @@ public:
 	void Render(Vector3 c);
 
 	void AddForce(Vector3 f);
+	void SetVel(Vector3 _vel);
 };
 
 #endif
