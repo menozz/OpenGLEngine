@@ -5,7 +5,7 @@
 
 Sprite::Sprite()
 {
-	pos = Vector3(0);
+	pos = Vector3();
 	texture = Texture();
 	rot = 0;
 	speed = MOVESPEED;
@@ -14,7 +14,7 @@ Sprite::Sprite()
 Sprite::Sprite(string imagePath)
 {
 	texture = Texture(imagePath);
-	pos = Vector3(0);
+	pos = Vector3();
 	rot = 0;
 	speed = MOVESPEED;
 }

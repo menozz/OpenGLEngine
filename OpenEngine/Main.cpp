@@ -10,7 +10,7 @@ int main()
 	auto engine = Engine();
 	if (engine.Initialize("Window Title"))
 	{
-		auto sprite = Sprite("Assets/Art/7.png", Vector3(0));
+		auto sprite = Sprite("Assets/Art/7.png", Vector3());
 		sprite.SetScale(0.25f);
 		while (true)
 		{
