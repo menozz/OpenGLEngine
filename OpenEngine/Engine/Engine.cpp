@@ -63,14 +63,14 @@ bool Engine::Initialize(const char* wndTitle)
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-	lastTime = glfwGetTime();
+	lastTime = (float)glfwGetTime();
 
 	return true;
 }
 
 void Engine::Update()
 {
-	float now = glfwGetTime();
+	float now = (float)glfwGetTime();
 	dt = now - lastTime;
 	lastTime = now;
 	glfwPollEvents();

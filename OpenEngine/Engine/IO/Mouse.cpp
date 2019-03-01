@@ -7,13 +7,13 @@ bool Mouse::buttons[GLFW_MOUSE_BUTTON_LAST] = { false };
 bool Mouse::buttonsDown[GLFW_MOUSE_BUTTON_LAST] = { false };
 bool Mouse::buttonsUp[GLFW_MOUSE_BUTTON_LAST] = { false };
 
-void Mouse::MousePosCallBack(GLFWwindow* window, double x, double y)
+void Mouse::MousePosCallBack(GLFWwindow* window, double _x, double _y)
 {
 	int w, h;
 	glfwGetFramebufferSize(window, &w, &h);
 
-	Mouse::x = x;
-	Mouse::y = h - y;
+	Mouse::x = _x;
+	Mouse::y = h - _y;
 }
 
 void Mouse::MouseButtonCallBack(GLFWwindow* window, int button, int action, int mods)
@@ -53,15 +53,15 @@ bool Mouse::Button(int button)
 
 bool Mouse::ButtonDown(int button)
 {
-	bool x = buttonsDown[button];
+	const auto b = buttonsDown[button];
 	buttonsDown[button] = false;
-	return x;
+	return b;
 }
 
 bool Mouse::ButtonUp(int button)
 {
-	bool x = buttonsUp[button];
+	const bool b = buttonsUp[button];
 	buttonsUp[button] = false;
-	return x;
+	return b;
 }
 

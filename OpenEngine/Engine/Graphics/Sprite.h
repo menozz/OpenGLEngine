@@ -11,13 +11,13 @@ using namespace std;
 class Sprite
 { 
 	Texture texture;
-
 	Vector3 pos;
-	Vector3 scale;
 
 	float rot;
 	float speed;
 
+	Vector3 scale;
+	Vector3 size;
 
 public:
 
@@ -44,6 +44,12 @@ public:
 
 	void SpeedTo(float x);
 	void SpeedBy(float x);
+
+	Vector3* GetPos();
+	float* GetRot();
+	Vector3* GetScale();
+	Vector3* GetSize();
+
 };
 
 #endif

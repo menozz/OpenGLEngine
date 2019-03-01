@@ -2,8 +2,10 @@
 #include "Engine/Graphics/Sprite.h"
 #include "Engine/IO/Mouse.h"
 #include "Engine/IO/Keyboard.h"
+#include "Flapper/Flapper.h"
 
 #define ROTSPEED 100
+
 
 int main()
 {
@@ -12,48 +14,51 @@ int main()
 	{
 		auto sprite = Sprite("Assets/Art/7.png", Vector3());
 		sprite.SetScale(0.25f);
+
+		Flapper player(sprite);
+
 		while (true)
 		{
 			engine.Update();
-			sprite.Update();
+			player.Update();
 
 			if (Mouse::Button(GLFW_MOUSE_BUTTON_RIGHT))
 			{
-				sprite.RotateBy(ROTSPEED);
+				player.GetSprite().RotateBy(ROTSPEED);
 			}
 
 			if (Mouse::Button(GLFW_MOUSE_BUTTON_LEFT))
 			{
-				sprite.RotateBy(-ROTSPEED);
+				player.GetSprite().RotateBy(-ROTSPEED);
 			}
 
 			if (Mouse::Button(GLFW_MOUSE_BUTTON_MIDDLE))
 			{
-				sprite.RotateTo(0);
+				player.GetSprite().RotateTo(0);
 			}
 
 			if (Keyboard::Key(GLFW_KEY_W))
 			{
-				sprite.MoveUp();
+				player.GetRB().AddForce({ 0,20,0 });
 			}
 
 			if (Keyboard::Key(GLFW_KEY_S))
 			{
-				sprite.MoveDown();
+				player.GetRB().AddForce({ 0,-20,0 });
 			}
 
 			if (Keyboard::Key(GLFW_KEY_A))
 			{
-				sprite.MoveLeft();
+				player.GetRB().AddForce({ -200,0,0 });
 			}
 
 			if (Keyboard::Key(GLFW_KEY_D))
 			{
-				sprite.MoveRight();
+				player.GetRB().AddForce({ 200,0,0 });
 			}
 
 			engine.BeginRender();
-			sprite.Render();
+			player.Render();
 			engine.EndRender();
 		}
 	}

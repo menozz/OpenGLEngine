@@ -44,9 +44,9 @@ Vector3 Vector3::operator*(const Vector3& other) const
 	return {x * other.x, y * other.y, z * other.z};
 }
 
-Vector3 Vector3::operator*(float x) const
+Vector3 Vector3::operator*(float _x) const
 {
-	return {this->x * x, y * x, z * x};
+	return {this->x * _x, y * _x, z * _x};
 }
 
 Vector3& Vector3::operator+=(const Vector3& other)

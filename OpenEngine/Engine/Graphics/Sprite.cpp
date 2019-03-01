@@ -5,18 +5,22 @@
 
 Sprite::Sprite()
 {
-	pos = Vector3();
-	texture = Texture();
+	pos = {};
+	texture = {};
 	rot = 0;
 	speed = MOVESPEED;
+	size = {};
+	scale = { 1 };
 }
 
 Sprite::Sprite(string imagePath)
 {
 	texture = Texture(imagePath);
-	pos = Vector3();
+	pos = {};
 	rot = 0;
 	speed = MOVESPEED;
+	size = { (float)texture.GetWidth(), (float)texture.GetHeight(), 1 };
+	scale = { 1 };
 }
 
 Sprite::Sprite(string imagePath, Vector3 v)
@@ -114,3 +118,26 @@ void Sprite::SpeedBy(float x)
 {
 	speed += x;
 }
+
+Vector3* Sprite::GetPos()
+{
+	return &pos;
+}
+
+float* Sprite::GetRot()
+{
+	return &rot;
+}
+
+Vector3* Sprite::GetScale()
+{
+	return &scale;
+}
+
+Vector3* Sprite::GetSize()
+{
+	return &size;
+}
+
+
+
