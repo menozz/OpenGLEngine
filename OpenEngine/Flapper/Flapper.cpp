@@ -1,4 +1,5 @@
 ﻿#include "Flapper.h"
+#include "../Engine/Engine.h"
 
 Flapper::Flapper()
 {
@@ -15,6 +16,7 @@ void Flapper::Update()
 {
 	sprite.Update();
 	rb.Update();
+	sprite.RotateBy(100 * Engine::GetDT());
 }
 
 void Flapper::Render()
@@ -31,6 +33,11 @@ Sprite& Flapper::GetSprite()
 Rigidbody& Flapper::GetRB()
 {
 	return rb;
+}
+
+void Flapper::Flap()
+{
+	rb.AddForce({ 0, 50, 0 });
 }
 
 

@@ -20,6 +20,7 @@ public:
 
 	Sprite& GetSprite();
 	Rigidbody& GetRB();
+	void Flap();
 };
 
 #endif
