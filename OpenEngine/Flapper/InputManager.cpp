@@ -14,7 +14,7 @@ void InputManager::Update()
 		//flapper->GetRB().AddForce({ 0,20,0 });
 		flapper->Flap();
 	}
-
+	//flapper->GetSprite().MoveTo({ (float)Mouse::GetMouseX(), (float)Mouse::GetMouseY() ,0});
 	/*if (Keyboard::Key(GLFW_KEY_W))
 	{
 		flapper->GetRB().AddForce({ 0,20,0 });

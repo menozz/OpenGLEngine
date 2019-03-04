@@ -48,7 +48,7 @@ bool Engine::Initialize(const char* wndTitle)
 	const auto mode = glfwGetVideoMode(glfwGetPrimaryMonitor());
 	const auto xPos = (mode->width - SCR_W) / 2;
 	const auto yPos = (mode->height - SCR_H) / 2;
-	glfwSetWindowPos(window, xPos, yPos);
+	glfwSetWindowPos(window, (int)xPos, (int)yPos);
 
 	// GL
 	glViewport(0, 0, w, h);

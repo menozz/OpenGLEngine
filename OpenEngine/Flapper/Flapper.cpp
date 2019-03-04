@@ -11,7 +11,9 @@ Flapper::Flapper()
 Flapper::Flapper(Sprite _sprite) : Flapper()
 {
 	sprite = _sprite;
-	rb.Initialize(FRICTION, GRAVITY, sprite.GetPos(), sprite.GetRot(), sprite.GetScale(), sprite.GetSize());
+	Rect boundingRect = Rect();
+	boundingRect.SetSize(*sprite.GetSize() * *sprite.GetScale());
+	rb.Initialize(FRICTION, GRAVITY, sprite.GetPos(), sprite.GetRot(), sprite.GetScale(), sprite.GetSize(), boundingRect);
 }
 
 void Flapper::Update()
@@ -20,14 +22,14 @@ void Flapper::Update()
 	rb.Update();
 
 	float yVal = rb.GetVel().y;
-	if(flapForce == 0)
+	if (flapForce == 0)
 	{
 		cout << "Error flapping" << endl;
 		flapForce = VELOCITY;
 	}
 
 	float newRot = (maxRot / flapForce) * yVal;
-	sprite.RotateTo(newRot);
+	//sprite.RotateTo(newRot);
 }
 
 void Flapper::Render()
@@ -48,8 +50,9 @@ Rigidbody& Flapper::GetRB()
 
 void Flapper::Flap()
 {
-	rb.SetVel({ 0, flapForce, 0 });
-	sprite.RotateTo(maxRot);
+	/*rb.SetVel({ 0, flapForce, 0 });
+	sprite.RotateTo(maxRot);*/
+	sprite.RotateBy(10);
 }
 
 

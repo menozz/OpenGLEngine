@@ -19,9 +19,8 @@ Sprite::Sprite(string imagePath) : Sprite()
 	size = { (float)texture.GetWidth(), (float)texture.GetHeight(), 1 };
 }
 
-Sprite::Sprite(string imagePath, Vector3 v) : Sprite()
+Sprite::Sprite(string imagePath, Vector3 v) : Sprite(imagePath)
 {
-	texture = Texture(imagePath);
 	pos = v;
 }
 
@@ -42,7 +41,7 @@ void Sprite::Render()
 
 	// Rendering
 	glColor4f(1, 1, 1, 1);
-
+	glLineWidth(6);
 	glBegin(GL_QUADS);
 	{
 		glTexCoord2f(0, 0); glVertex2i(-texture.GetWidth() / 2, -texture.GetHeight() / 2);
