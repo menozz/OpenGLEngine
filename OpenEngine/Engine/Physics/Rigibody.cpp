@@ -60,6 +60,11 @@ void Rigidbody::AddForce(Vector3 f)
 	vel += f;
 }
 
+Vector3 Rigidbody::GetVel()
+{
+	return vel;
+}
+
 void Rigidbody::SetVel(Vector3 _vel)
 {
 	vel = _vel;

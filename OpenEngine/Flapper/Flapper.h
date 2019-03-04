@@ -4,12 +4,18 @@
 #include "../Engine/Physics/Rigibody.h"
 
 #define FRICTION 0.8f
-#define GRAVITY -10.0f
+#define GRAVITY -15.0f
+#define VELOCITY 400
+#define MAXANGLE 30
 
 class Flapper
 {
 	Sprite sprite;
 	Rigidbody rb;
+
+	float maxRot;
+	float minRot;
+	float flapForce;
 
 public:
 	Flapper();

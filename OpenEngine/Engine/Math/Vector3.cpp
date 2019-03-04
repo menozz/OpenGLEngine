@@ -1,8 +1,7 @@
 #include "Vector3.h"
 
-Vector3::Vector3()
+Vector3::Vector3() : Vector3(0)
 {
-	x = y = z = 0;
 }
 
 //Vector3::Vector3(const Vector3& other)

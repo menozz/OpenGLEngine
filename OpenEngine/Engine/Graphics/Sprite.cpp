@@ -1,7 +1,7 @@
 #include "Sprite.h"
 #include "../Engine.h"
 
-#define MOVESPEED 200
+#define MOVESPEED 20
 
 Sprite::Sprite()
 {
@@ -13,22 +13,16 @@ Sprite::Sprite()
 	scale = { 1 };
 }
 
-Sprite::Sprite(string imagePath)
+Sprite::Sprite(string imagePath) : Sprite()
 {
 	texture = Texture(imagePath);
-	pos = {};
-	rot = 0;
-	speed = MOVESPEED;
 	size = { (float)texture.GetWidth(), (float)texture.GetHeight(), 1 };
-	scale = { 1 };
 }
 
-Sprite::Sprite(string imagePath, Vector3 v)
+Sprite::Sprite(string imagePath, Vector3 v) : Sprite()
 {
 	texture = Texture(imagePath);
 	pos = v;
-	rot = 0;
-	speed = MOVESPEED;
 }
 
 void Sprite::Update()
